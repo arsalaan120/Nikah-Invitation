@@ -52,6 +52,21 @@
     box-shadow:0 0 26px 6px rgba(227,201,138,.55);
   }
 
+  /* gentle looping invitation glow so it's obvious this is tappable */
+  @keyframes invitePulse{
+    0%, 100% { box-shadow:0 0 0 rgba(227,201,138,0); }
+    50%      { box-shadow:0 0 18px 4px rgba(227,201,138,.45); }
+  }
+  #btnEnter{
+    animation: invitePulse 2.4s ease-in-out infinite;
+  }
+  #btnEnter.firing{
+    animation: none;
+  }
+  @media (prefers-reduced-motion: reduce){
+    #btnEnter{ animation:none; }
+  }
+
   /* INSHAALLAH button — re-measured directly from hero.jpg pixel coordinates
      (border box: x 341–679, y 1182–1265 out of 1024×1536), with a small
      comfortable margin added around it for an easy tap target */
