@@ -44,7 +44,7 @@ rgba(0,0,0,0.15) 100%
 ),
 url("images/background.jpg");
 
-    background-size:1000px 160vh;
+    background-size:100% 100%;
     background-position:center;
     background-repeat:no-repeat;
 }
