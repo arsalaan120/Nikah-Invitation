@@ -73,61 +73,94 @@ url("images/background.jpg");
 ========================== */
 
 .arabic{
+
     color:#D4AF37;
-    font-size:38px;
-    line-height:1.4;
+
+    font-size:15px;
+
+    line-height:0.7;
+
     text-shadow:0 3px 15px rgba(0,0,0,.8);
-    margin-bottom:18px;
+
 }
 
 h3{
-    margin-top:20px;
+
+    margin-top:25px;
+
     color:#D4AF37;
-    font-size:22px;
+
+    font-size:10px;
+
     font-family:'Cinzel',serif;
-    line-height:1.4;
+
 }
 
 .verse{
-    font-size:18px;
-    color:#ffffff;
-    font-style:italic;
-    line-height:1.8;
-    max-width:320px;
-    margin:30px auto;
-    text-shadow:0 3px 10px black;
+
+font-size:10px;
+
+color:white;
+
+font-style:italic;
+
+line-height:0.7;
+
+text-shadow:0 3px 10px black;
+
+max-width:900px;
+
+margin:30px auto;
+
 }
 
 h4{
-    margin-top:30px;
-    letter-spacing:6px;
+
+    margin-top:35px;
+
+    letter-spacing:7px;
+
     color:#D4AF37;
-    font-size:14px;
-    line-height:1.6;
+
+    font-size:9px;
+
 }
 
+/* ==========================
+   BUTTON
+========================== */
+
 #enterBtn{
-    width:260px;
-    height:68px;
-    background:#5A1022;
-    border:2px solid #D4AF37;
-    color:#F8F3E8;
-    border-radius:50px;
-    font-size:20px;
-    font-weight:600;
-    margin-top:40px;
-    box-shadow:0 0 25px rgba(212,175,55,.35);
-    cursor:pointer;
-    transition:.3s;
+
+padding:20px 70px;
+
+background:#5A1022;
+
+border:2px solid #D4AF37;
+
+color:#F8F3E8;
+
+border-radius:60px;
+
+font-size:12px;
+
+margin-top:45px;
+
+box-shadow:0 0 25px rgba(212,175,55,.35);
+
 }
 
 #enterBtn:hover{
-    background:#D4AF37;
-    color:#5A1022;
-    transform:scale(1.03);
-    box-shadow:0 0 25px #D4AF37;
-}
 
+    background:#D4AF37;
+
+    color:#5A1022;
+
+    transform:scale(1.0);
+
+    box-shadow:0 0 20px #D4AF37;
+
+}
 /* ==========================
    MAIN INVITATION
 ========================== */
