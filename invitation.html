@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Osama & Sana | The Celebrations</title>
+<style>
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{ width:100%; background:#1c0306; }
+  body{ -webkit-tap-highlight-color:transparent; }
+
+  .shot{
+    position:relative;
+    width:100%;
+    line-height:0;
+    font-size:0;
+  }
+  .shot img{
+    width:100%;
+    height:auto;
+    display:block;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+
+  .hot{
+    position:absolute;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    display:block;
+  }
+  .hot:focus-visible{
+    outline:2px solid rgba(227,201,138,.9);
+    outline-offset:3px;
+    border-radius:14px;
+  }
+  .hot:active{ background:rgba(227,201,138,.12); }
+
+  /* venue (image 3) — QR code + Open in Google Maps button */
+  #linkQR{
+    left:21.5%;
+    width:57%;
+    top:45.2%;
+    height:34.4%;
+    border-radius:14px;
+  }
+  #linkMaps{
+    left:23.8%;
+    width:52.8%;
+    top:84%;
+    height:7%;
+    border-radius:4px;
+  }
+
+  /* back button to return to the hero page */
+  #backHome{
+    position:fixed;
+    top:16px;
+    left:16px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:1px solid rgba(227,201,138,.75);
+    background:rgba(20,4,6,.55);
+    backdrop-filter:blur(6px);
+    color:#e3c98a;
+    font-size:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:50;
+    text-decoration:none;
+  }
+  #backHome:focus-visible{ outline:2px solid #e3c98a; outline-offset:3px; }
+
+  /* back-to-top control, appears once scrolled down */
+  #backTop{
+    position:fixed;
+    right:16px;
+    bottom:18px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:1px solid rgba(227,201,138,.75);
+    background:rgba(20,4,6,.55);
+    backdrop-filter:blur(6px);
+    color:#e3c98a;
+    font-size:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:50;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .35s ease;
+  }
+  #backTop.show{ opacity:1; pointer-events:auto; }
+  #backTop:focus-visible{ outline:2px solid #e3c98a; outline-offset:3px; }
+</style>
+</head>
+<body>
+
+  <a id="backHome" href="index.html" aria-label="Back to start">‹</a>
+
+  <!-- Osama & Sana / Nikah & Walima dates -->
+  <div class="shot" id="intro">
+    <img src="assets/intro.jpg" alt="Osama and Sana — Nikah 11th November 2026, Walima 15th November 2026">
+  </div>
+
+  <!-- Nikah & Walima full details -->
+  <div class="shot" id="celebrations">
+    <img src="assets/celebrations.jpg" alt="Nikah and Walima ceremony details, dates, times and venue">
+  </div>
+
+  <!-- Venue + QR code -->
+  <div class="shot" id="venue">
+    <img src="assets/venue.jpg" alt="The Venue — The Crown Banquet Hall and Hotel, Patna, with map QR code">
+    <a class="hot" id="linkQR" href="#" target="_blank" rel="noopener" aria-label="Open venue location in Google Maps (QR code)"></a>
+    <a class="hot" id="linkMaps" href="#" target="_blank" rel="noopener" aria-label="Open in Google Maps"></a>
+  </div>
+
+  <button id="backTop" type="button" aria-label="Back to top">↑</button>
+
+<script>
+  (function(){
+    var address = "The Crown Banquet Hall & Hotel, Khagaul – Phulwari Sharif Road, near BMP 16, Lakh, Khagaul, Patna, Bihar 801105";
+    var mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
+
+    document.getElementById('linkMaps').href = mapsUrl;
+    document.getElementById('linkQR').href = mapsUrl;
+
+    var backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', function(){
+      backTop.classList.toggle('show', window.scrollY > 400);
+    }, {passive:true});
+
+    backTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  })();
+</script>
+
+</body>
+</html>
