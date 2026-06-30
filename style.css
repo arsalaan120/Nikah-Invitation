@@ -1,0 +1,646 @@
+/* ==========================
+   GOOGLE FONTS & RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#5A1022;
+    color:#F8F3E8;
+    overflow-x:hidden;
+}
+
+/* ==========================
+   LANDING PAGE
+========================== */
+
+#landing{
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    /* background:
+    linear-gradient(rgba(0,0,0,.35),rgba(40,8,20,.45)),
+    url("images/background.jpg"); 
+
+    background-image: url("images/background.jpg"); */
+
+    background:
+radial-gradient(
+circle at center,
+rgba(0,0,0,0.75) 0%,
+rgba(0,0,0,0.55) 35%,
+rgba(0,0,0,0.35) 70%,
+rgba(0,0,0,0.15) 100%
+),
+url("images/background.jpg");
+
+    background-size:1000px 160vh;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.landing-content{
+
+    width:100%;
+    max-width:850px;
+
+    text-align:center;
+
+    padding:40px;
+
+    background:transparent;
+
+    border:none;
+
+    box-shadow:none;
+
+    backdrop-filter:none;
+
+}
+
+/* ==========================
+   ARABIC
+========================== */
+
+.arabic{
+
+    color:#D4AF37;
+
+    font-size:55px;
+
+    line-height:1.7;
+
+    text-shadow:0 3px 15px rgba(0,0,0,.8);
+
+}
+
+h3{
+
+    margin-top:25px;
+
+    color:#D4AF37;
+
+    font-size:36px;
+
+    font-family:'Cinzel',serif;
+
+}
+
+.verse{
+
+font-size:32px;
+
+color:white;
+
+font-style:italic;
+
+line-height:1.6;
+
+text-shadow:0 3px 10px black;
+
+max-width:900px;
+
+margin:30px auto;
+
+}
+
+h4{
+
+    margin-top:35px;
+
+    letter-spacing:7px;
+
+    color:#D4AF37;
+
+    font-size:18px;
+
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+#enterBtn{
+
+padding:20px 70px;
+
+background:#5A1022;
+
+border:2px solid #D4AF37;
+
+color:#F8F3E8;
+
+border-radius:60px;
+
+font-size:28px;
+
+margin-top:45px;
+
+box-shadow:0 0 35px rgba(212,175,55,.35);
+
+}
+
+#enterBtn:hover{
+
+    background:#D4AF37;
+
+    color:#5A1022;
+
+    transform:scale(1.05);
+
+    box-shadow:0 0 30px #D4AF37;
+
+}
+/* ==========================
+   MAIN INVITATION
+========================== */
+
+#invitation{
+
+display:none;
+
+min-height:100vh;
+
+padding:80px 20px;
+
+background:
+linear-gradient(
+rgba(15,5,5,.75),
+rgba(35,10,20,.75)
+),
+url("images/background.jpg");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+background-repeat:no-repeat;
+
+}
+
+/* ==========================
+   HERO CARD
+========================== */
+
+header{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.card{
+
+width:100%;
+max-width:850px;
+
+padding:60px;
+
+background:rgba(60,16,34,.55);
+
+backdrop-filter:blur(12px);
+
+border:2px solid #D4AF37;
+
+border-radius:30px;
+
+box-shadow:
+0 0 50px rgba(0,0,0,.55);
+
+text-align:center;
+
+}
+
+.card h1{
+
+font-family:"Great Vibes",cursive;
+
+font-size:90px;
+
+color:#F8F3E8;
+
+margin-bottom:25px;
+
+text-shadow:0 3px 10px black;
+
+}
+
+.arabic2{
+
+font-size:42px;
+
+color:#D4AF37;
+
+line-height:1.8;
+
+margin-bottom:40px;
+
+text-shadow:0 3px 15px black;
+
+}
+
+/* ==========================
+   EVENT BOXES
+========================== */
+
+.event{
+
+margin:25px auto;
+
+padding:30px;
+
+width:80%;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(212,175,55,.4);
+
+border-radius:18px;
+
+transition:.4s;
+
+}
+
+.event:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 25px rgba(212,175,55,.25);
+
+}
+
+.event h2{
+
+font-family:'Cinzel',serif;
+
+color:#D4AF37;
+
+font-size:34px;
+
+margin-bottom:12px;
+
+}
+
+.event p{
+
+font-size:30px;
+
+color:#F8F3E8;
+
+}
+
+.quote{
+
+margin-top:40px;
+
+font-size:28px;
+
+font-style:italic;
+
+color:#F8F3E8;
+
+opacity:.9;
+
+}
+
+/* ==========================
+   COUNTDOWN
+========================== */
+
+.countdown{
+
+margin-top:80px;
+
+text-align:center;
+
+}
+
+.countdown h2{
+
+font-size:50px;
+
+color:#D4AF37;
+
+font-family:'Cinzel',serif;
+
+margin-bottom:40px;
+
+}
+
+.timer{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+}
+
+.timer div{
+
+width:170px;
+
+padding:30px;
+
+border-radius:20px;
+
+background:rgba(50,15,30,.55);
+
+border:1px solid rgba(212,175,55,.4);
+
+backdrop-filter:blur(10px);
+
+}
+
+.timer h1{
+
+font-size:55px;
+
+color:#D4AF37;
+
+}
+
+.timer span{
+
+display:block;
+
+margin-top:10px;
+
+font-size:20px;
+
+color:#F8F3E8;
+
+}
+/* ==========================
+   VENUE
+========================== */
+
+.venue{
+
+margin-top:90px;
+
+text-align:center;
+
+}
+
+.venue h2{
+
+font-size:48px;
+
+font-family:'Cinzel',serif;
+
+color:#D4AF37;
+
+margin-bottom:25px;
+
+}
+
+.venue p{
+
+font-size:24px;
+
+color:#F8F3E8;
+
+margin-bottom:40px;
+
+}
+
+.venue a{
+
+display:inline-block;
+
+padding:18px 55px;
+
+border:2px solid #D4AF37;
+
+border-radius:50px;
+
+text-decoration:none;
+
+background:#5A1022;
+
+color:#F8F3E8;
+
+font-size:22px;
+
+transition:.4s;
+
+}
+
+.venue a:hover{
+
+background:#D4AF37;
+
+color:#5A1022;
+
+transform:scale(1.05);
+
+box-shadow:0 0 30px rgba(212,175,55,.5);
+
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+
+margin-top:120px;
+
+padding:40px;
+
+text-align:center;
+
+border-top:1px solid rgba(212,175,55,.3);
+
+}
+
+footer p{
+
+font-size:22px;
+
+color:#F8F3E8;
+
+margin-bottom:20px;
+
+}
+
+footer h3{
+
+font-family:"Great Vibes",cursive;
+
+font-size:60px;
+
+color:#D4AF37;
+
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#3c0d1c;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#D4AF37;
+
+border-radius:20px;
+
+}
+
+/* ==========================
+   ANIMATION
+========================== */
+
+.card,
+.timer div,
+.event,
+.venue{
+
+animation:fadeUp 1s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+.landing-content{
+
+padding:35px;
+
+}
+
+.arabic{
+
+font-size:34px;
+
+}
+
+.card{
+
+padding:30px;
+
+}
+
+.card h1{
+
+font-size:60px;
+
+}
+
+.arabic2{
+
+font-size:28px;
+
+}
+
+.event{
+
+width:100%;
+
+}
+
+.event h2{
+
+font-size:28px;
+
+}
+
+.event p{
+
+font-size:22px;
+
+}
+
+.timer{
+
+gap:15px;
+
+}
+
+.timer div{
+
+width:130px;
+
+padding:20px;
+
+}
+
+.timer h1{
+
+font-size:38px;
+
+}
+
+.countdown h2{
+
+font-size:34px;
+
+}
+
+.venue h2{
+
+font-size:34px;
+
+}
+
+.venue p{
+
+font-size:18px;
+
+}
+
+footer h3{
+
+font-size:42px;
+
+}
+
+}
