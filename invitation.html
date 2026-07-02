@@ -38,8 +38,21 @@
   }
   .hot:active{ background:rgba(227,201,138,.12); }
 
-  /* venue (image 3) — QR code + Open in Google Maps button */
-  
+  /* city maps (Patna & Delhi) — tap zones over each lace-framed card */
+  #linkPatna{
+    left:44.97%;
+    width:45.94%;
+    top:5.86%;
+    height:42.29%;
+    border-radius:18px;
+  }
+  #linkDelhi{
+    left:9.78%;
+    width:46.43%;
+    top:51.40%;
+    height:44.89%;
+    border-radius:18px;
+  }
 
   /* back button to return to the hero page */
   #backHome{
@@ -103,11 +116,11 @@
     <img src="assets/celebrations.jpg" alt="Nikah and Walima ceremony details, dates, times and venue">
   </div>
 
-  <!-- Venue + QR code -->
-  <div class="shot" id="venue">
-    <img src="assets/venue.jpg" alt="The Venue — The Crown Banquet Hall and Hotel, Patna, with map QR code">
-    <a class="hot" id="linkQR" href="#" target="_blank" rel="noopener" aria-label="Open venue location in Google Maps (QR code)"></a>
-    <a class="hot" id="linkMaps" href="#" target="_blank" rel="noopener" aria-label="Open in Google Maps"></a>
+  <!-- City maps — Patna & Delhi -->
+  <div class="shot" id="cityMaps">
+    <img src="assets/citymaps.jpg" alt="Illustrated maps of Patna and Delhi">
+    <a class="hot" id="linkPatna" href="#" target="_blank" rel="noopener" aria-label="Open Patna location in Google Maps"></a>
+    <a class="hot" id="linkDelhi" href="#" target="_blank" rel="noopener" aria-label="Open Delhi location in Google Maps"></a>
   </div>
 
   <!-- Closing note -->
@@ -122,17 +135,28 @@
     var address = "The Crown Banquet Hall & Hotel, Khagaul – Phulwari Sharif Road, near BMP 16, Lakh, Khagaul, Patna, Bihar 801105";
     var mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
 
-    document.getElementById('linkMaps').href = mapsUrl;
-    document.getElementById('linkQR').href = mapsUrl;
+    var linkMaps = document.getElementById('linkMaps');
+    if (linkMaps) linkMaps.href = mapsUrl;
+
+    var linkQR = document.getElementById('linkQR');
+    if (linkQR) linkQR.href = mapsUrl;
+
+    var linkDelhi = document.getElementById('linkDelhi');
+    if (linkDelhi) linkDelhi.href = "https://maps.app.goo.gl/q4iDBPgT9Ah7VEGJ7?g_st=ac";
+
+    var linkPatna = document.getElementById('linkPatna');
+    if (linkPatna) linkPatna.href = "https://maps.app.goo.gl/FPoGwAEcooj1p7ft5?g_st=ac";
 
     var backTop = document.getElementById('backTop');
-    window.addEventListener('scroll', function(){
-      backTop.classList.toggle('show', window.scrollY > 400);
-    }, {passive:true});
+    if (backTop) {
+      window.addEventListener('scroll', function(){
+        backTop.classList.toggle('show', window.scrollY > 400);
+      }, {passive:true});
 
-    backTop.addEventListener('click', function(){
-      window.scrollTo({top:0, behavior:'smooth'});
-    });
+      backTop.addEventListener('click', function(){
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    }
   })();
 </script>
 
