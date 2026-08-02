@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Osama & Sana | The Celebrations</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box; margin:0; padding:0;}
   html,body{ width:100%; background:#1c0306; }
@@ -38,7 +39,6 @@
   }
   .hot:active{ background:rgba(227,201,138,.12); }
 
-  /* city maps (Patna & Delhi) — tap zones over each lace-framed card */
   #linkPatna{
     left:44.97%;
     width:45.94%;
@@ -54,7 +54,6 @@
     border-radius:18px;
   }
 
-  /* back button to return to the hero page */
   #backHome{
     position:fixed;
     top:16px;
@@ -76,7 +75,6 @@
   }
   #backHome:focus-visible{ outline:2px solid #e3c98a; outline-offset:3px; }
 
-  /* back-to-top control, appears once scrolled down */
   #backTop{
     position:fixed;
     right:16px;
@@ -100,63 +98,141 @@
   }
   #backTop.show{ opacity:1; pointer-events:auto; }
   #backTop:focus-visible{ outline:2px solid #e3c98a; outline-offset:3px; }
+
+  /* ── each number pinned to the center of its own box ── */
+  .cd-num {
+    position: absolute;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: clamp(18px, 12vw, 60px);
+    color: #3b1505;
+    line-height: 1;
+    transition: opacity .15s ease;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .cd-num.flip { opacity: 0.2; }
+
+  /* adjust top/left to hit exact center of each golden box */
+  #cd-days  { top: 84%; left: 24%; }
+  #cd-hours { top: 84%; left: 41%; }
+  #cd-mins  { top: 84%; left: 56%; }
+  #cd-secs  { top: 84%; left: 73%; }
 </style>
 </head>
 <body>
 
   <a id="backHome" href="index.html" aria-label="Back to start">‹</a>
 
-  <!-- Osama & Sana / Nikah & Walima dates -->
+  <!-- Slide 1: Intro -->
   <div class="shot" id="intro">
     <img src="assets/intro.jpg" alt="Osama and Sana — Nikah 11th November 2026, Walima 15th November 2026">
   </div>
 
-  <!-- Nikah & Walima full details -->
+  <!-- Slide 2: Celebrations -->
   <div class="shot" id="celebrations">
     <img src="assets/celebrations.jpg" alt="Nikah and Walima ceremony details, dates, times and venue">
   </div>
 
-  <!-- City maps — Patna & Delhi -->
+  <!-- Slide 3: City Maps -->
   <div class="shot" id="cityMaps">
     <img src="assets/citymaps.jpg" alt="Illustrated maps of Patna and Delhi">
     <a class="hot" id="linkPatna" href="#" target="_blank" rel="noopener" aria-label="Open Patna location in Google Maps"></a>
     <a class="hot" id="linkDelhi" href="#" target="_blank" rel="noopener" aria-label="Open Delhi location in Google Maps"></a>
   </div>
 
-  <!-- Closing note -->
+  <!-- Slide 4: Countdown — numbers go inside the 4 golden boxes -->
   <div class="shot" id="closing">
-    <img src="assets/closing.jpg" alt="Waiting for your gracious presence — join us in our celebration, with best compliments from family, relatives and friends">
+    <img src="assets/countdown.jpg" alt="Waiting for your gracious presence — Until we say Qubool Hai">
+    <span class="cd-num" id="cd-days">--</span>
+    <span class="cd-num" id="cd-hours">--</span>
+    <span class="cd-num" id="cd-mins">--</span>
+    <span class="cd-num" id="cd-secs">--</span>
+  </div>
+
+  <!-- Slide 5: Quranic verse -->
+  <div class="shot" id="lastSlide">
+    <img src="assets/last.jpg" alt="Surah Al-A'raf 7:189 — It is He who created you from one soul and created from it its mate">
   </div>
 
   <button id="backTop" type="button" aria-label="Back to top">↑</button>
 
 <script>
   (function(){
+
+    /* ── maps ── */
     var address = "The Crown Banquet Hall & Hotel, Khagaul – Phulwari Sharif Road, near BMP 16, Lakh, Khagaul, Patna, Bihar 801105";
     var mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
 
     var linkMaps = document.getElementById('linkMaps');
-    if (linkMaps) linkMaps.href = mapsUrl;
+    if(linkMaps) linkMaps.href = mapsUrl;
 
     var linkQR = document.getElementById('linkQR');
-    if (linkQR) linkQR.href = mapsUrl;
+    if(linkQR) linkQR.href = mapsUrl;
 
     var linkDelhi = document.getElementById('linkDelhi');
-    if (linkDelhi) linkDelhi.href = "https://maps.app.goo.gl/q4iDBPgT9Ah7VEGJ7?g_st=ac";
+    if(linkDelhi) linkDelhi.href = "https://maps.app.goo.gl/q4iDBPgT9Ah7VEGJ7?g_st=ac";
 
     var linkPatna = document.getElementById('linkPatna');
-    if (linkPatna) linkPatna.href = "https://maps.app.goo.gl/FPoGwAEcooj1p7ft5?g_st=ac";
+    if(linkPatna) linkPatna.href = "https://maps.app.goo.gl/FPoGwAEcooj1p7ft5?g_st=ac";
 
+    /* ── back to top ── */
     var backTop = document.getElementById('backTop');
-    if (backTop) {
+    if(backTop){
       window.addEventListener('scroll', function(){
         backTop.classList.toggle('show', window.scrollY > 400);
-      }, {passive:true});
-
+      },{passive:true});
       backTop.addEventListener('click', function(){
         window.scrollTo({top:0, behavior:'smooth'});
       });
     }
+
+    /* ── countdown: Nikah 11 November 2026 ── */
+    var TARGET   = new Date('2026-11-11T00:00:00');
+    var elDays   = document.getElementById('cd-days');
+    var elHours  = document.getElementById('cd-hours');
+    var elMins   = document.getElementById('cd-mins');
+    var elSecs   = document.getElementById('cd-secs');
+    var prevSecs = -1;
+
+    function pad(n){ return String(n).padStart(2,'0'); }
+
+    function flash(el){
+      el.classList.add('flip');
+      setTimeout(function(){ el.classList.remove('flip'); }, 150);
+    }
+
+    function tick(){
+      var diff = TARGET - new Date();
+
+      if(diff <= 0){
+        elDays.textContent = elHours.textContent = elMins.textContent = elSecs.textContent = '00';
+        return;
+      }
+
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000)  / 60000);
+      var s = Math.floor((diff % 60000)    / 1000);
+
+      if(s !== prevSecs){
+        flash(elSecs);
+        if(s === 59)             flash(elMins);
+        if(s === 59 && m === 59) flash(elHours);
+        if(s === 59 && m === 59 && h === 23) flash(elDays);
+        prevSecs = s;
+      }
+
+      elDays.textContent  = pad(d);
+      elHours.textContent = pad(h);
+      elMins.textContent  = pad(m);
+      elSecs.textContent  = pad(s);
+
+      requestAnimationFrame(tick);
+    }
+
+    tick();
+
   })();
 </script>
 
