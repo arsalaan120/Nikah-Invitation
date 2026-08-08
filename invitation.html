@@ -39,21 +39,70 @@
   }
   .hot:active{ background:rgba(227,201,138,.12); }
 
+  /* ── map tap zones ── */
   #linkPatna{
-    left:44.97%;
-    width:45.94%;
-    top:5.86%;
-    height:42.29%;
+    left:51.60%;
+    width:33.60%;
+    top:19.40%;
+    height:26.00%;
     border-radius:18px;
   }
   #linkDelhi{
-    left:9.78%;
-    width:46.43%;
-    top:51.40%;
-    height:44.89%;
+    left:16.50%;
+    width:33.57%;
+    top:66.50%;
+    height:23.50%;
     border-radius:18px;
   }
 
+  /* ── maroon pulse hugging the inner map border ── */
+  @keyframes mapPulse {
+    0%, 100% {
+      box-shadow: 0 0 0px 0px rgba(120,0,20,0),
+                  inset 0 0 0px 0px rgba(120,0,20,0);
+      background: rgba(120,0,20,0.0);
+    }
+    50% {
+      box-shadow: 0 0 0px 0px rgba(120,0,20,0),
+                  inset 0 0 18px 8px rgba(140,0,30,0.55);
+      background: rgba(120,0,20,0.08);
+    }
+  }
+
+  #linkPatna {
+    animation: mapPulse 2.4s ease-in-out infinite;
+    border: 2.5px solid rgba(140,0,30,0);
+  }
+  #linkDelhi {
+    animation: mapPulse 2.4s ease-in-out infinite;
+    animation-delay: 1.2s;
+    border: 2.5px solid rgba(140,0,30,0);
+  }
+
+  @keyframes borderPulse {
+    0%, 100% { border-color: rgba(140,0,30,0.0); }
+    50%       { border-color: rgba(160,10,40,0.85); }
+  }
+
+  #linkPatna {
+    animation: mapPulse 2.4s ease-in-out infinite,
+               borderPulse 2.4s ease-in-out infinite;
+    border: 3px solid rgba(140,0,30,0);
+    border-radius: 18px;
+  }
+  #linkDelhi {
+    animation: mapPulse 2.4s ease-in-out infinite,
+               borderPulse 2.4s ease-in-out infinite;
+    animation-delay: 1.2s;
+    border: 3px solid rgba(140,0,30,0);
+    border-radius: 18px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    #linkPatna, #linkDelhi { animation: none; }
+  }
+
+  /* ── back home button ── */
   #backHome{
     position:fixed;
     top:16px;
@@ -75,6 +124,7 @@
   }
   #backHome:focus-visible{ outline:2px solid #e3c98a; outline-offset:3px; }
 
+  /* ── back to top button ── */
   #backTop{
     position:fixed;
     right:16px;
@@ -99,12 +149,12 @@
   #backTop.show{ opacity:1; pointer-events:auto; }
   #backTop:focus-visible{ outline:2px solid #e3c98a; outline-offset:3px; }
 
-  /* ── each number pinned to the center of its own box ── */
+  /* ── each countdown number pinned to its own box ── */
   .cd-num {
     position: absolute;
     font-family: 'Cinzel', serif;
     font-weight: 600;
-    font-size: clamp(18px, 12vw, 60px);
+    font-size: clamp(18px, 7vw, 60px);
     color: #3b1505;
     line-height: 1;
     transition: opacity .15s ease;
@@ -113,7 +163,6 @@
   }
   .cd-num.flip { opacity: 0.2; }
 
-  /* adjust top/left to hit exact center of each golden box */
   #cd-days  { top: 84%; left: 24%; }
   #cd-hours { top: 84%; left: 41%; }
   #cd-mins  { top: 84%; left: 56%; }
@@ -134,14 +183,14 @@
     <img src="assets/celebrations.jpg" alt="Nikah and Walima ceremony details, dates, times and venue">
   </div>
 
-  <!-- Slide 3: City Maps -->
+  <!-- Slide 3: City Maps — blinking glow on both cards -->
   <div class="shot" id="cityMaps">
     <img src="assets/citymaps.jpg" alt="Illustrated maps of Patna and Delhi">
     <a class="hot" id="linkPatna" href="#" target="_blank" rel="noopener" aria-label="Open Patna location in Google Maps"></a>
     <a class="hot" id="linkDelhi" href="#" target="_blank" rel="noopener" aria-label="Open Delhi location in Google Maps"></a>
   </div>
 
-  <!-- Slide 4: Countdown — numbers go inside the 4 golden boxes -->
+  <!-- Slide 4: Countdown — numbers inside 4 golden boxes -->
   <div class="shot" id="closing">
     <img src="assets/countdown.jpg" alt="Waiting for your gracious presence — Until we say Qubool Hai">
     <span class="cd-num" id="cd-days">--</span>
@@ -161,7 +210,7 @@
   (function(){
 
     /* ── maps ── */
-    var address = "The Crown Banquet Hall & Hotel, Khagaul – Phulwari Sharif Road, near BMP 16, Lakh, Khagaul, Patna, Bihar 801105";
+    var address = "Haroon Nagar Community Hall Sector 2, Haroon Colony Sector -Il, Phulwari Sharif, Patna, Bihar 800002";
     var mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
 
     var linkMaps = document.getElementById('linkMaps');
@@ -174,7 +223,7 @@
     if(linkDelhi) linkDelhi.href = "https://maps.app.goo.gl/q4iDBPgT9Ah7VEGJ7?g_st=ac";
 
     var linkPatna = document.getElementById('linkPatna');
-    if(linkPatna) linkPatna.href = "https://maps.app.goo.gl/FPoGwAEcooj1p7ft5?g_st=ac";
+    if(linkPatna) linkPatna.href = "https://maps.app.goo.gl/ALRqB4v89ENVpJAg7?g_st=ac";
 
     /* ── back to top ── */
     var backTop = document.getElementById('backTop');
