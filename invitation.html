@@ -58,25 +58,24 @@
   /* ── BOTH blink together, bright maroon ── */
   @keyframes mapPulse {
     0%, 100% {
-      box-shadow: 0 0 0px 0px rgba(180,0,30,0),
-                  inset 0 0 0px 0px rgba(180,0,30,0);
-      border-color: rgba(180,0,30,0);
-      background: rgba(180,0,30,0);
+      box-shadow: 0 0 0px 0px rgba(180,120,80,0),
+                  inset 0 0 0px 0px rgba(180,120,80,0);
+      border-color: rgba(180,120,80,0);
+      background: rgba(180,120,80,0);
     }
     50% {
-      box-shadow: 0 0 8px 2px rgba(180,0,30,0.35),
-                  inset 0 0 10px 3px rgba(180,0,30,0.22);
-      border-color: rgba(180,0,30,0.5);
-      background: rgba(180,0,30,0.04);
+      box-shadow: 0 0 8px 2px rgba(160,100,60,0.35),
+                  inset 0 0 10px 3px rgba(160,100,60,0.22);
+      border-color: rgba(160,100,60,0.5);
+      background: rgba(160,100,60,0.04);
     }
   }
 
   #linkPatna,
   #linkDelhi {
-    border: 3px solid rgba(180,0,30,0);
+    border: 3px solid rgba(160,100,60,0);
     border-radius: 18px;
     animation: mapPulse 2s ease-in-out infinite;
-    /* NO delay on either — both pulse together */
   }
 
   @media (prefers-reduced-motion: reduce){
