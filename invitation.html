@@ -70,11 +70,7 @@
   }
   #backTop.show{ opacity:1; pointer-events:auto; }
 
-  /* ══════════════════════════════════
-     TAP FOR LOCATION — Nikah (Patna)
-     Positioned over "TAP FOR LOCATION"
-     text at bottom of nikah.jpg
-  ══════════════════════════════════ */
+  /* ── TAP FOR LOCATION — Nikah (Patna) ── */
   #linkNikah {
     position: absolute;
     left: 25%;
@@ -83,18 +79,13 @@
     height: 6%;
     border-radius: 8px;
     background: transparent;
-    border: none;
     cursor: pointer;
     display: block;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* ══════════════════════════════════
-     TAP FOR LOCATION — Walima (Delhi)
-     Positioned over "TAP FOR LOCATION"
-     text at bottom of walima.jpg
-  ══════════════════════════════════ */
+  /* ── TAP FOR LOCATION — Walima (Delhi) ── */
   #linkWalima {
     position: absolute;
     left: 25%;
@@ -103,47 +94,42 @@
     height: 6%;
     border-radius: 8px;
     background: transparent;
-    border: none;
     cursor: pointer;
     display: block;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* ── Nikah page: red/crimson blink to match its red accents ── */
+  /* ── Nikah: very thin soft red glow on border only ── */
   @keyframes nikahPulse {
     0%, 100% {
-      box-shadow: 0 0 0px 0px rgba(180,20,20,0),
-                  inset 0 0 0px 0px rgba(180,20,20,0);
       border-color: rgba(180,20,20,0);
+      box-shadow: none;
     }
     50% {
-      box-shadow: 0 0 6px 1px rgba(180,20,20,0.25),
-                  inset 0 0 8px 2px rgba(180,20,20,0.2);
-      border-color: rgba(150,20,20,0.5);
+      border-color: rgba(180,20,20,0.45);
+      box-shadow: 0 0 5px 1px rgba(180,20,20,0.18);
     }
   }
 
-  /* ── Walima page: navy/blue blink to match its blue accents ── */
+  /* ── Walima: very thin soft blue glow on border only ── */
   @keyframes walimaPulse {
     0%, 100% {
-      box-shadow: 0 0 0px 0px rgba(60,60,140,0),
-                  inset 0 0 0px 0px rgba(60,60,140,0);
       border-color: rgba(60,60,140,0);
+      box-shadow: none;
     }
     50% {
-      box-shadow: 0 0 6px 1px rgba(60,60,140,0.25),
-                  inset 0 0 8px 2px rgba(60,60,140,0.2);
-      border-color: rgba(60,60,140,0.5);
+      border-color: rgba(60,60,140,0.45);
+      box-shadow: 0 0 5px 1px rgba(60,60,140,0.18);
     }
   }
 
   #linkNikah {
-    border: 2.5px solid rgba(180,20,20,0);
+    border: 2px solid rgba(180,20,20,0);
     animation: nikahPulse 2s ease-in-out infinite;
   }
   #linkWalima {
-    border: 2.5px solid rgba(60,60,140,0);
+    border: 2px solid rgba(60,60,140,0);
     animation: walimaPulse 2s ease-in-out infinite;
   }
 
@@ -151,10 +137,7 @@
     #linkNikah, #linkWalima { animation: none; }
   }
 
-  /* ══════════════════════════════════
-     COUNTDOWN on closing.jpg
-     "until we say Qubool Hai" slide
-  ══════════════════════════════════ */
+  /* ── countdown numbers ── */
   .cd-num {
     position: absolute;
     font-family: 'Cinzel', serif;
@@ -168,7 +151,6 @@
   }
   .cd-num.flip { opacity: 0.2; }
 
-  /* adjust top/left after checking your closing.jpg boxes */
   #cd-days  { top: 71.5%; left: 24%; }
   #cd-hours { top: 71.5%; left: 41%; }
   #cd-mins  { top: 71.5%; left: 58%; }
@@ -180,7 +162,7 @@
 
   <a id="backHome" href="index.html" aria-label="Back to start">‹</a>
 
-  <!-- Slide 1: Intro — Osama Khan & Sana Perween -->
+  <!-- Slide 1: Intro -->
   <div class="shot" id="intro">
     <img src="assets/intro.jpg" alt="We request the honor of your presence at the Wedding Ceremony of Osama Khan and Sana Perween">
   </div>
@@ -192,7 +174,7 @@
        target="_blank" rel="noopener" aria-label="Open Nikah venue in Google Maps — Patna"></a>
   </div>
 
-  <!-- Slide 3: Walima/Reception — 15 Nov 2026 — TAP FOR LOCATION → Delhi -->
+  <!-- Slide 3: Walima — 15 Nov 2026 — TAP FOR LOCATION → Delhi -->
   <div class="shot" id="walima">
     <img src="assets/walima.jpg" alt="Save the date — Reception of Sana and Osama — 15th November 2026 — Tap for Location">
     <a id="linkWalima" href="https://maps.app.goo.gl/q4iDBPgT9Ah7VEGJ7?g_st=ac"
